@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}New Story - The Teenage Years{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div>
+        <h1>Share your story</h1>
+        <p>Your story can help someone else feel understood. You can stay anonymous if you like.</p>
+    </div>
+    <img src="{{ url_for('static', filename='img/stories.svg') }}" alt="An open book with speech bubbles">
+</section>
+<form method="post" novalidate class="form-card">
+    {{ form.hidden_tag() }}
+    {% for field in [form.title, form.author, form.content] %}
+    <p>
+        {{ field.label }}<br>
+        {{ field() }}
+        {% for error in field.errors %}<br><span class="error">{{ error }}</span>{% endfor %}
+    </p>
+    {% endfor %}
+    <p>{{ form.submit(class_='button') }}</p>
+</form>
+{% endblock %}

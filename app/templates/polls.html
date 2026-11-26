@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Polls - The Teenage Years{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div>
+        <h1>Polls</h1>
+        <p>Vote on questions that matter to teenagers, or create your own and see how everyone answers.</p>
+    </div>
+    <img src="{{ url_for('static', filename='img/polls.svg') }}" alt="A colourful poll with bar charts">
+</section>
+
+<section>
+    <h2>Create a poll</h2>
+    <p>But only topic reliable</p>
+    <form method="post" novalidate class="form-card">
+        {{ form.hidden_tag() }}
+        {% for field in [form.question, form.options] %}
+        <p>
+            {{ field.label }}<br>
+            {{ field(size=50) }}
+            {% for error in field.errors %}<br><span class="error">{{ error }}</span>{% endfor %}
+        </p>
+        {% endfor %}
+        <p>{{ form.submit(class_='button') }}</p>
+    </form>
+</section>
+
+<section>
+    <h2>All polls</h2>
+    {% for poll in polls %}
+    <a class="card poll-link" href="{{ url_for('main.poll_detail', poll_id=poll.id) }}">
+        <span>{{ poll.question }}</span>
+        <span class="arrow">&rarr;</span>
+    </a>
+    {% else %}
+    <p>No polls yet.</p>
+    {% endfor %}
+</section>
+{% endblock %}

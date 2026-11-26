@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Teenage Years{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav-inner">
+            <a class="brand" href="{{ url_for('main.index') }}">
+                <img src="{{ url_for('static', filename='img/favicon.svg') }}" alt="">
+                <span>The Teenage <em>Years</em></span>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    {% set ep = request.endpoint or '' %}
+                    <li><a href="{{ url_for('main.index') }}" class="{{ 'active' if ep == 'main.index' }}">Home</a></li>
+                    <li><a href="{{ url_for('main.about') }}" class="{{ 'active' if ep == 'main.about' }}">About</a></li>
+                    <li><a href="{{ url_for('main.other_projects') }}" class="{{ 'active' if ep == 'main.other_projects' }}">Other Projects</a></li>
+                    <li><a href="{{ url_for('main.stories') }}" class="{{ 'active' if ep in ('main.stories', 'main.new_story') }}">Stories</a></li>
+                    <li><a href="{{ url_for('main.polls') }}" class="{{ 'active' if ep in ('main.polls', 'main.poll_detail') }}">Polls</a></li>
+                    <li><a href="{{ url_for('main.quiz') }}" class="{{ 'active' if ep == 'main.quiz' }}">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <p class="flash {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Teenage Years. All rights reserved.</p>
+    </footer>
+</body>
+</html>

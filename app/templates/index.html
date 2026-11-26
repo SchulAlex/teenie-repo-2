@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+    <div>
+        <span class="eyebrow">Voices of 2026</span>
+        <h1>Welcome to <span class="grad">The Teenage Years</span></h1>
+        <p class="lead">Explore the challenges and experiences of teenagers in 2026. This platform is dedicated to understanding the voices of youth and their unique journeys.</p>
+        <div class="cta-row">
+            <a href="{{ url_for('main.new_story') }}" class="button">Share a Story</a>
+            <a href="{{ url_for('main.polls') }}" class="button secondary">Take a Poll</a>
+            <a href="{{ url_for('main.quiz') }}" class="button tertiary">Take a Quiz</a>
+        </div>
+    </div>
+    <img src="{{ url_for('static', filename='img/hero.svg') }}" alt="Three smiling teenagers chatting and sharing with each other">
+</section>
+
+<section>
+    <h2>Challenges Faced by Teenagers</h2>
+    <div class="card-grid">
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/icon-social.svg') }}" alt="">
+            <h3>Social Media Pressure</h3>
+            <p>Likes, feeds and the fear of missing out.</p>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/icon-academic.svg') }}" alt="">
+            <h3>Academic Stress</h3>
+            <p>Exams, grades and big decisions about the future.</p>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/icon-identity.svg') }}" alt="">
+            <h3>Identity Exploration</h3>
+            <p>Figuring out who you are and who you want to be.</p>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/icon-peers.svg') }}" alt="">
+            <h3>Peer Relationships</h3>
+            <p>Friendships, belonging and finding your people.</p>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/icon-mind.svg') }}" alt="">
+            <h3>Mental Health Awareness</h3>
+            <p>Talking openly about how we feel.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Join the Conversation</h2>
+    <p>Participate in our polls and quizzes to share your thoughts and experiences.</p>
+    <div class="feature-grid">
+        <a class="feature" href="{{ url_for('main.stories') }}">
+            <img src="{{ url_for('static', filename='img/stories.svg') }}" alt="An open book with speech bubbles">
+            <div class="body">
+                <h3>Stories</h3>
+                <p>Read and share real experiences from teenagers.</p>
+                <span class="more">Read stories &rarr;</span>
+            </div>
+        </a>
+        <a class="feature" href="{{ url_for('main.polls') }}">
+            <img src="{{ url_for('static', filename='img/polls.svg') }}" alt="A colourful poll with bar charts">
+            <div class="body">
+                <h3>Polls</h3>
+                <p>Vote on questions and see what others think.</p>
+                <span class="more">Vote now &rarr;</span>
+            </div>
+        </a>
+        <a class="feature" href="{{ url_for('main.quiz') }}">
+            <img src="{{ url_for('static', filename='img/quiz.svg') }}" alt="Large colourful question marks">
+            <div class="body">
+                <h3>Quiz</h3>
+                <p>Find out how you handle the teenage years.</p>
+                <span class="more">Start the quiz &rarr;</span>
+            </div>
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Quiz - The Teenage Years{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div>
+        <h1>Quiz: How do you handle the teenage years?</h1>
+        <p>Answer two quick questions and discover your coping style. There are no wrong answers!</p>
+    </div>
+    <img src="{{ url_for('static', filename='img/quiz.svg') }}" alt="Large colourful question marks">
+</section>
+
+<form id="quiz-form">
+    <div class="card quiz-q">
+        <h3><span class="q-num">1</span>After a stressful school day, you usually...</h3>
+        <label class="choice"><input type="radio" name="q1" value="a" required> talk to a friend</label>
+        <label class="choice"><input type="radio" name="q1" value="b"> need time alone</label>
+        <label class="choice"><input type="radio" name="q1" value="c"> scroll through social media</label>
+    </div>
+    <div class="card quiz-q">
+        <h3><span class="q-num">2</span>When you feel under pressure, you...</h3>
+        <label class="choice"><input type="radio" name="q2" value="a" required> ask someone for help</label>
+        <label class="choice"><input type="radio" name="q2" value="b"> try to solve it on your own</label>
+        <label class="choice"><input type="radio" name="q2" value="c"> distract yourself</label>
+    </div>
+    <button type="submit" class="button">See result</button>
+</form>
+<p id="quiz-result" class="card quiz-result" hidden></p>
+{% endblock %}

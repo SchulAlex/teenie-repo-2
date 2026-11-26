@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}About - The Teenage Years{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div>
+        <h1>About The Teenage Years</h1>
+        <p>This project aims to explore and visualize the experiences of teenagers in 2026. We believe it is crucial to listen to the voices of young people as they navigate the challenges and opportunities of their formative years.</p>
+    </div>
+    <img src="{{ url_for('static', filename='img/about.svg') }}" alt="Three teenagers with a megaphone">
+</section>
+
+<section>
+    <p>Through various features such as stories, polls, and quizzes, we hope to create a platform that not only reflects the realities of teenage life but also engages teenagers in meaningful discussions about their experiences.</p>
+    <div class="values">
+        <div class="card"><h3>Listen</h3><p>Every voice matters, so we make space for honest stories.</p></div>
+        <div class="card"><h3>Connect</h3><p>Polls and quizzes show that you are not alone.</p></div>
+        <div class="card"><h3>Celebrate</h3><p>The teenage years are tough, but they are also full of firsts.</p></div>
+    </div>
+</section>
+
+<section>
+    <p><strong>Join us on this journey to understand and celebrate the teenage years!</strong></p>
+    <a href="{{ url_for('main.new_story') }}" class="button">Share your story</a>
+</section>
+{% endblock %}
