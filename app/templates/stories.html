@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Stories - The Teenage Years{% endblock %}
+{% block content %}
+<section class="page-banner">
+    <div>
+        <h1>Stories</h1>
+        <p>Real experiences, in the words of teenagers. Read what others have been through, or tell your own.</p>
+        <a href="{{ url_for('main.new_story') }}" class="button">Share a Story</a>
+    </div>
+    <img src="{{ url_for('static', filename='img/stories.svg') }}" alt="An open book with speech bubbles">
+</section>
+
+<div class="story-grid">
+{% for story in stories %}
+<article class="card">
+    <div class="story-author">
+        <span class="avatar">{{ story.author[:1]|upper }}</span>
+        <span>by {{ story.author }}</span>
+    </div>
+    <h2>{{ story.title }}</h2>
+    {% if story.image_filename %}
+    <img class="upload-img" src="{{ url_for('static', filename='uploads/' + story.image_filename) }}" alt="Picture for the story {{ story.title }}" loading="lazy">
+    {% endif %}
+    <p class="story-content">{{ story.content }}</p>
+</article>
+{% else %}
+<p>No stories yet. Be the first to share one!</p>
+{% endfor %}
+</div>
+{% endblock %}
