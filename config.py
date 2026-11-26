@@ -11,12 +11,18 @@ class Config:
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+<<<<<<< HEAD
     UPLOAD_FOLDER = os.path.join(basedir, 'app', 'static', 'uploads')
     MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # max. 5 MB per upload
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 
 
 class TestConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     WTF_CSRF_ENABLED = False
+<<<<<<< HEAD
     UPLOAD_FOLDER = os.path.join(basedir, 'tests', 'uploads_tmp')
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb

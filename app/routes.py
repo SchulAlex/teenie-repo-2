@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 import os
 import uuid
 
 from flask import (Blueprint, current_app, flash, redirect, render_template,
                    request, session, url_for)
 from werkzeug.utils import secure_filename
+=======
+import uuid
+
+from flask import (Blueprint, flash, redirect, render_template, request,
+                   session, url_for)
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 
 from .forms import PollForm, StoryForm
 from .models import Poll, PollOption, PollVote, Story, db
 
 main = Blueprint('main', __name__)
 
+<<<<<<< HEAD
 # Magic bytes of the allowed image formats (so a renamed .exe is rejected)
 _SIGNATURES = (b'\xff\xd8\xff', b'\x89PNG\r\n\x1a\n', b'GIF87a', b'GIF89a')
 
@@ -42,6 +50,8 @@ def file_too_large(_error):
     flash('The file is too large (max. 5 MB).', 'error')
     return redirect(request.referrer or url_for('main.index'))
 
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 
 def _current_user_id():
     """Anonymous, session-based id (used to prevent double voting)."""
@@ -75,15 +85,21 @@ def stories():
 def new_story():
     form = StoryForm()
     if form.validate_on_submit():
+<<<<<<< HEAD
         filename, error = save_upload(form.image.data)
         if error:
             form.image.errors.append(error)
             return render_template('new_story.html', form=form)
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
         story = Story(
             title=form.title.data,
             content=form.content.data,
             author=(form.author.data or '').strip() or 'Anonymous',
+<<<<<<< HEAD
             image_filename=filename,
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
         )
         db.session.add(story)
         db.session.commit()
@@ -95,12 +111,16 @@ def new_story():
 def polls():
     form = PollForm()
     if form.validate_on_submit():
+<<<<<<< HEAD
         filename, error = save_upload(form.image.data)
         if error:
             form.image.errors.append(error)
             all_polls = Poll.query.order_by(Poll.id.desc()).all()
             return render_template('polls.html', form=form, polls=all_polls)
         poll = Poll(question=form.question.data, image_filename=filename)
+=======
+        poll = Poll(question=form.question.data)
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
         for text in form.parsed_options(form.options.data):
             poll.options.append(PollOption(option_text=text))
         db.session.add(poll)

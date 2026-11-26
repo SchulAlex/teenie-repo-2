@@ -18,9 +18,12 @@
         <span>by {{ story.author }}</span>
     </div>
     <h2>{{ story.title }}</h2>
+<<<<<<< HEAD
     {% if story.image_filename %}
     <img class="upload-img" src="{{ url_for('static', filename='uploads/' + story.image_filename) }}" alt="Picture for the story {{ story.title }}" loading="lazy">
     {% endif %}
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
     <p class="story-content">{{ story.content }}</p>
 </article>
 {% else %}

@@ -6,6 +6,9 @@ venv/
 instance/*.db
 .env
 .pytest_cache/
+<<<<<<< HEAD
 app/static/uploads/*
 !app/static/uploads/.gitkeep
 tests/uploads_tmp/
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb

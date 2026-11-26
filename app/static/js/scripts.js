@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
+<<<<<<< HEAD
 
     // Other Projects: pictures are hidden behind a "[Click for Picture]" button
     document.querySelectorAll('.picture-card').forEach(function (card) {
@@ -70,4 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (event.key === 'Escape' && !view.hidden) close.click();
         });
     });
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 });

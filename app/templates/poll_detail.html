@@ -2,9 +2,12 @@
 {% block title %}{{ poll.question }} - The Teenage Years{% endblock %}
 {% block content %}
 <h1>{{ poll.question }}</h1>
+<<<<<<< HEAD
 {% if poll.image_filename %}
 <img class="upload-img" src="{{ url_for('static', filename='uploads/' + poll.image_filename) }}" alt="Picture for the poll {{ poll.question }}">
 {% endif %}
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 
 <form method="post" id="poll-form" class="form-card">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

@@ -12,12 +12,21 @@
 <section>
     <h2>Create a poll</h2>
     <p>But only topic reliable</p>
+<<<<<<< HEAD
     <form method="post" enctype="multipart/form-data" novalidate class="form-card">
         {{ form.hidden_tag() }}
         {% for field in [form.question, form.options, form.image] %}
         <p>
             {{ field.label }}<br>
             {{ field(size=50) if field.type != 'FileField' else field(accept='image/*') }}
+=======
+    <form method="post" novalidate class="form-card">
+        {{ form.hidden_tag() }}
+        {% for field in [form.question, form.options] %}
+        <p>
+            {{ field.label }}<br>
+            {{ field(size=50) }}
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
             {% for error in field.errors %}<br><span class="error">{{ error }}</span>{% endfor %}
         </p>
         {% endfor %}
@@ -29,10 +38,14 @@
     <h2>All polls</h2>
     {% for poll in polls %}
     <a class="card poll-link" href="{{ url_for('main.poll_detail', poll_id=poll.id) }}">
+<<<<<<< HEAD
         {% if poll.image_filename %}
         <img class="poll-thumb" src="{{ url_for('static', filename='uploads/' + poll.image_filename) }}" alt="" loading="lazy">
         {% endif %}
         <span class="poll-question">{{ poll.question }}</span>
+=======
+        <span>{{ poll.question }}</span>
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
         <span class="arrow">&rarr;</span>
     </a>
     {% else %}

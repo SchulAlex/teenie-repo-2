@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import os
 
 from flask import Flask
 from sqlalchemy import inspect, text
+=======
+from flask import Flask
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 
@@ -23,6 +27,7 @@ def create_app(config_class=Config):
     from .routes import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+<<<<<<< HEAD
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
     with app.app_context():
@@ -41,3 +46,9 @@ def _add_missing_image_columns():
         if 'image_filename' not in columns:
             with db.engine.begin() as conn:
                 conn.execute(text(f'ALTER TABLE {table} ADD COLUMN image_filename VARCHAR(200)'))
+=======
+    with app.app_context():
+        db.create_all()
+
+    return app
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb

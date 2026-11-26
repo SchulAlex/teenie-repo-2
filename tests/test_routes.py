@@ -73,6 +73,7 @@ def test_vote_invalid_option(client, app):
     client.post(f'/poll/{poll_id}', data={'option': 9999})
     with app.app_context():
         assert PollVote.query.count() == 0
+<<<<<<< HEAD
 
 
 # ----- image uploads -----
@@ -110,3 +111,5 @@ def test_wrong_extension_rejected(client, app):
         'title': 'Hi', 'content': 'Text', 'image': (io.BytesIO(PNG), 'x.svg')})
     with app.app_context():
         assert Story.query.count() == 0
+=======
+>>>>>>> 2e30b332e272c2b4ba395f0b61e71434b00f2dfb
